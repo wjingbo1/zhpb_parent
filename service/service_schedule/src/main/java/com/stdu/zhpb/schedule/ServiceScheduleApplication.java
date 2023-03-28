@@ -1,4 +1,4 @@
-package com.stdu.zhpb.store;
+package com.stdu.zhpb.schedule;
 
 
 import org.springframework.boot.SpringApplication;
@@ -9,9 +9,9 @@ import org.springframework.context.annotation.ComponentScan;
 @EnableDiscoveryClient
 @SpringBootApplication
 @ComponentScan(basePackages = "com.stdu.zhpb")
-public class ServiceStoreApplication {
+public class ServiceScheduleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ServiceStoreApplication.class, args);
+        SpringApplication.run(ServiceScheduleApplication.class, args);
     }
 }

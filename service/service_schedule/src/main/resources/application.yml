@@ -1,15 +1,15 @@
 server:
-  port: 8302
+  port: 8303
 
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/zhpb_stores?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://localhost:3306/zhpb_schedue?characterEncoding=utf-8&useSSL=false
     username: root
     password: "1767737316."
 
   application:
-    name: service-store
+    name: service-schedule
 
   cloud:
     nacos:
@@ -23,4 +23,4 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: com/stdu/zhpb/store/mapper/xml/*.xml
+  mapper-locations: com/stdu/zhpb/schedule/mapper/xml/*.xml

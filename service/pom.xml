@@ -14,6 +14,8 @@
     <modules>
         <module>service_employee</module>
         <module>service_store</module>
+        <module>service_schedule</module>
+        <module>service_schedule</module>
     </modules>
 
     <properties>
