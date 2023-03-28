@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @ControllerAdvice  //aop
+//异常统一处理
 public class GlobalExceptionHandler {
 
     //全局异常处理

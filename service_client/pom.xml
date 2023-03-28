@@ -25,6 +25,7 @@
             <scope>provided </scope>
         </dependency>
 
+
         <dependency>
             <groupId>com.stdu</groupId>
             <artifactId>model</artifactId>
