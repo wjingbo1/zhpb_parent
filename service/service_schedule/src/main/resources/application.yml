@@ -8,6 +8,9 @@ spring:
     username: root
     password: "1767737316."
 
+  profiles:
+    active: dev
+
   application:
     name: service-schedule
 

@@ -11,6 +11,9 @@ spring:
   application:
     name: service-employee
 
+  profiles:
+    active: dev
+
   cloud:
     nacos:
       server-addr: 127.0.0.1:8848

@@ -19,7 +19,7 @@ import java.util.Map;
  * @since 2023-03-19
  */
 
-@CrossOrigin
+
 @Api(tags = "员工管理接口")
 @RestController
 @RequestMapping("/admin/employee")

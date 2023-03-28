@@ -1,0 +1,28 @@
+server:
+  port: 8304
+spring:
+  application:
+    name: service-gateway
+
+  cloud:
+    nacos:
+      server-addr: 127.0.0.1:8848
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id : service-schedule
+          uri: lb://service-schedule
+          predicates: # 路由断言，判断请求是否符合规则
+            - Path=/*/schedule/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+        - id: service-employee
+          uri: lb://service-employee
+          predicates: # 路由断言，判断请求是否符合规则
+            - Path=/*/employee/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+        - id: service-store
+          uri: lb://service-store
+          predicates: # 路由断言，判断请求是否符合规则
+            - Path=/*/store/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+
+

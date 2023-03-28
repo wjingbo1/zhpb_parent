@@ -11,6 +11,10 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @Configuration
 @EnableSwagger2
+/**
+ * Swagger测试
+ * http://localhost:8301/swagger-ui.html
+ */
 public class Swagger2Config {
     @Bean
     public Docket webApiConfig(){
@@ -25,8 +29,8 @@ public class Swagger2Config {
 
     private ApiInfo webApiInfo(){
         return new ApiInfoBuilder()
-                .title("网站-API文档")
-                .description("本文档描述了网站微服务接口定义")
+                .title("智慧排班-API文档")
+                .description("本文档描述了智慧排班网站微服务接口定义")
                 .version("1.0")
                 .contact(new Contact("stdu", "http://coisini.wang", "w_jingbo@outlook.com"))
                 .build();

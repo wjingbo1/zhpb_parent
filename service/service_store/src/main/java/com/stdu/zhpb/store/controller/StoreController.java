@@ -21,7 +21,7 @@ import java.util.Map;
  * @author wjingbo
  * @since 2023-03-19
  */
-@CrossOrigin
+
 @Api(tags = "店铺管理")
 @RestController
 @RequestMapping("/admin/store")
