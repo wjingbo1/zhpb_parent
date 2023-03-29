@@ -7,23 +7,24 @@ import lombok.Data;
 
 import java.util.Date;
 
-@Data
+
 /**
  * 客流量预测实体类
  */
+@Data
 public class Forecast extends BaseEntity{
 
-    @TableId(type = IdType.ASSIGN_UUID)
-    private String id;
+
+    private int id;
 
     private String storeId;
 
-    @JsonFormat(pattern = "yyyy/MM/dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private Date dateTime;
 
     private String beginTime ;
 
     private String endTime;
 
-    private int customerFlow;
+    private double customerFlow;
 }

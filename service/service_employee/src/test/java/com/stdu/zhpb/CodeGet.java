@@ -20,7 +20,7 @@ public class CodeGet {
         // 全局配置
         GlobalConfig gc = new GlobalConfig();
         String projectPath = System.getProperty("user.dir");
-        gc.setOutputDir("D:\\idea1\\zhpb_parent\\service\\service_store"+"/src/main/java");
+        gc.setOutputDir("D:\\idea1\\zhpb_parent\\service\\service_schedule"+"/src/main/java");
         gc.setServiceName("%sService");	//去掉Service接口的首字母I
         gc.setAuthor("wjingbo");
         gc.setOpen(false);
@@ -28,7 +28,7 @@ public class CodeGet {
 
         // 3、数据源配置
         DataSourceConfig dsc = new DataSourceConfig();
-        dsc.setUrl("jdbc:mysql://localhost:3306/zhpb_stores");
+        dsc.setUrl("jdbc:mysql://localhost:3306/zhpb_schedue");
         dsc.setDriverName("com.mysql.jdbc.Driver");
         dsc.setUsername("root");
         dsc.setPassword("1767737316.");
@@ -38,7 +38,7 @@ public class CodeGet {
         // 4、包配置
         PackageConfig pc = new PackageConfig();
         // com.atguigu.ggkt.vod.
-        pc.setModuleName("store"); //模块名
+        pc.setModuleName("schedule"); //模块名
         pc.setParent("com.stdu.zhpb");
         pc.setController("controller");
         pc.setEntity("entity");
@@ -49,7 +49,7 @@ public class CodeGet {
         // 5、策略配置
         StrategyConfig strategy = new StrategyConfig();
 
-        strategy.setInclude("store");
+        strategy.setInclude("schedule");
 
         strategy.setNaming(NamingStrategy.underline_to_camel);//数据库表映射到实体的命名策略
 

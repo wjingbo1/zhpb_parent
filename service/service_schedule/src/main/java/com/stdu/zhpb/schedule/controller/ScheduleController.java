@@ -18,4 +18,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/admin/schedule")
 public class ScheduleController {
 
+
 }

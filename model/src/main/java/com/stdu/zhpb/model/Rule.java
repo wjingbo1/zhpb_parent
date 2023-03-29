@@ -21,5 +21,5 @@ public class Rule {
 
     private String close;
 
-    private String passenger_flow;
+    private double passengerFlow;
 }
