@@ -19,9 +19,6 @@ import java.util.List;
 
 @Service
 public class RuleServiceImpl extends ServiceImpl<RuleMapper,Rule> implements RuleService {
-
-
-
     @Resource
     private ForecastMapper forecastMapper;
 
@@ -59,7 +56,9 @@ public class RuleServiceImpl extends ServiceImpl<RuleMapper,Rule> implements Rul
         Double passengerFlow = rule.getPassengerFlow();
 
         for(int i = 0 ; i < fSize - 1; i = i + 2){
-            Double count =Math.ceil((forecasts.get(i).getCustomerFlow() + forecasts.get(i+1).getCustomerFlow()) / passengerFlow);
+            Double count = Math.max(Math.ceil(forecasts.get(i).getCustomerFlow() / passengerFlow) , 1.0);
+            count = Math.max(count,Math.ceil(forecasts.get(i+1).getCustomerFlow() / passengerFlow));
+            //Double count =Math.ceil((forecasts.get(i).getCustomerFlow() + forecasts.get(i+1).getCustomerFlow()) / passengerFlow);
             res.add((int) Math.round(count));
         }
         //关店规则
