@@ -38,4 +38,22 @@ public class EmployeeController {
         Map<String,Object> map = employeeService.findPageEmployee(pageParam,employeeQueryVo);
         return Result.ok(map);
     }
+
+    @ApiOperation("新增员工")
+    @PostMapping("add")
+    public Result addEmployee(@RequestBody Employee employee){
+        return employeeService.addEmployee(employee);
+    }
+
+    @ApiOperation("删除员工")
+    @DeleteMapping
+    public Result deleteEmployeeById(@RequestParam String id){
+        return employeeService.deleteEmployeeById(id);
+    }
+
+    @ApiOperation("更新员工信息")
+    @PutMapping
+    public Result updateEmployee(@RequestBody Employee employee){
+        return employeeService.updateEmployee(employee);
+    }
 }

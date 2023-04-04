@@ -1,6 +1,7 @@
 package com.stdu.zhpb.store.controller;
 
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.stdu.zhpb.model.Store;
 import com.stdu.zhpb.result.Result;
@@ -39,6 +40,25 @@ public class StoreController {
         Map<String,Object> map = storeService.findPageStore(pageParam,storeQueryVo);
         return Result.ok(map);
     }
+
+    @ApiOperation("添加店铺")
+    @PostMapping("/add")
+    public Result addStore(@RequestBody Store store){
+        return storeService.addStore(store);
+    }
+
+    @PutMapping
+    @ApiOperation("更新店铺")
+    public Result updateStore(@RequestBody Store store){
+        return storeService.updateStore(store);
+    }
+
+    @ApiOperation("删除店铺")
+    @DeleteMapping
+    public Result deleteStore(@RequestParam String id){
+        return storeService.deleteStore(id);
+    }
+
 
 }
 
