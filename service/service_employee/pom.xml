@@ -18,6 +18,13 @@
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>com.stdu</groupId>
+            <artifactId>service_client_store</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>

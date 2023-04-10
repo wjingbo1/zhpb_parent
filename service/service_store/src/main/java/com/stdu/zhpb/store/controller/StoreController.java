@@ -54,10 +54,11 @@ public class StoreController {
     }
 
     @ApiOperation("删除店铺")
-    @DeleteMapping
-    public Result deleteStore(@RequestParam String id){
+    @DeleteMapping("/{id}")
+    public Result deleteStore(@PathVariable String id){
         return storeService.deleteStore(id);
     }
+
 
 
 }

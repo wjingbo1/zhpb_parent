@@ -46,8 +46,8 @@ public class EmployeeController {
     }
 
     @ApiOperation("删除员工")
-    @DeleteMapping
-    public Result deleteEmployeeById(@RequestParam String id){
+    @DeleteMapping("/{id}")
+    public Result deleteEmployeeById(@PathVariable String id){
         return employeeService.deleteEmployeeById(id);
     }
 

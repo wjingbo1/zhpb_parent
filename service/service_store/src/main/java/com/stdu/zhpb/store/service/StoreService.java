@@ -25,4 +25,6 @@ public interface StoreService extends IService<Store> {
     Result updateStore(Store store);
 
     Result deleteStore(String id);
+
+    Store getByName(String name);
 }

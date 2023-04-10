@@ -29,7 +29,6 @@ public class CountTest {
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = dateFormat.parse(dateString);
         List<Integer> integers = ruleService.dayCount("1yVTqDvQU", date);
-        System.out.println(integers.toString());
         logger.info("输出结果:"+integers.toString());
     }
 }

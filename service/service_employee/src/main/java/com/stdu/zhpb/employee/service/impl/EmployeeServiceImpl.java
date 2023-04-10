@@ -1,14 +1,19 @@
 package com.stdu.zhpb.employee.service.impl;
 
+import cn.hutool.core.lang.UUID;
+import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.stdu.zhpb.client.store.StoreInfoFeignClient;
 import com.stdu.zhpb.employee.mapper.EmployeeMapper;
 import com.stdu.zhpb.employee.service.EmployeeService;
 import com.stdu.zhpb.model.Employee;
+import com.stdu.zhpb.model.Store;
 import com.stdu.zhpb.result.Result;
 import com.stdu.zhpb.vo.EmployeeQueryVo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
@@ -30,6 +35,9 @@ import java.util.Map;
 @Service
 public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper,Employee> implements EmployeeService {
 
+    @Autowired
+    private StoreInfoFeignClient storeInfoFeignClient;
+
 
     @Override
     public Map<String, Object> findPageEmployee(Page<Employee> pageParam, EmployeeQueryVo employeeQueryVo) {
@@ -44,7 +52,6 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper,Employee> im
         lambdaQueryWrapper.like(!StringUtils.isEmpty(name),Employee::getName,name);
         lambdaQueryWrapper.eq(!StringUtils.isEmpty(email),Employee::getEmail,email);
         lambdaQueryWrapper.like(!StringUtils.isEmpty(store),Employee::getStore,store);
-
         Page<Employee> employeePage = baseMapper.selectPage(pageParam, lambdaQueryWrapper);
         long totalCount = employeePage.getTotal();
         long totalPage = employeePage.getPages();
@@ -60,6 +67,10 @@ public class EmployeeServiceImpl extends ServiceImpl<EmployeeMapper,Employee> im
 
     @Override
     public Result addEmployee(Employee employee) {
+        Store store = storeInfoFeignClient.getByName(employee.getStore());
+        employee.setStoreId(store.getId());
+        String id = "employee_" + IdUtil.getSnowflakeNextId();
+        employee.setId(id);
         employee.setCreateTime(new Date());
         employee.setUpdateTime(new Date());
         int isSuccess = baseMapper.insert(employee);

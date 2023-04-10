@@ -1,6 +1,8 @@
 package com.stdu.zhpb.store.service.impl;
 
+import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.stdu.zhpb.model.Store;
 import com.stdu.zhpb.result.Result;
@@ -54,6 +56,8 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store> implements
 
     @Override
     public Result addStore(Store store) {
+        String id = "store_" + IdUtil.getSnowflakeNextId();
+        store.setId(id);
         store.setCreateTime(new Date());
         store.setUpdateTime(new Date());
         int isSuccess = baseMapper.insert(store);
@@ -80,6 +84,20 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store> implements
             return Result.ok(null).message("删除成功");
         }
         return Result.fail(null).message("删除失败");
+    }
+
+    /**
+     * 根据店铺名称查询店铺
+     * @param name
+     * @return
+     */
+    @Override
+    public Store getByName(String name){
+        if(name != null){
+            Store store = baseMapper.selectOne(new QueryWrapper<Store>().eq("name", name));
+            return store;
+        }
+        return null;
     }
 
 
