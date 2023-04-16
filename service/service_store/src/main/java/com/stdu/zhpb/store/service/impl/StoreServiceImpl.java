@@ -100,5 +100,11 @@ public class StoreServiceImpl extends ServiceImpl<StoreMapper, Store> implements
         return null;
     }
 
+    @Override
+    public List<Store> getAll() {
+        List<Store> stores = baseMapper.selectList(new QueryWrapper<>());
+        return stores;
+    }
+
 
 }

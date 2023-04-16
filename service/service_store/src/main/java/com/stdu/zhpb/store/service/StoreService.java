@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.stdu.zhpb.result.Result;
 import com.stdu.zhpb.vo.StoreQueryVo;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,4 +28,6 @@ public interface StoreService extends IService<Store> {
     Result deleteStore(String id);
 
     Store getByName(String name);
+
+    List<Store> getAll();
 }

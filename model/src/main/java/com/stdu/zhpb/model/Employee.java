@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Employee extends BaseEntity{
 
-    @TableId(type = IdType.ASSIGN_UUID)
+    //@TableId(type = IdType.ASSIGN_UUID)
     private String id;
 
     private String name;

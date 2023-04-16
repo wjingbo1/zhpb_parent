@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>service_client_store</module>
+        <module>service_client_preference</module>
     </modules>
 
     <properties>

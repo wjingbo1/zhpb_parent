@@ -23,7 +23,7 @@ public class RuleServiceImpl extends ServiceImpl<RuleMapper,Rule> implements Rul
     private ForecastMapper forecastMapper;
 
     @Override
-    public List<Integer> dayCount(String storeId , Date date) {
+    public List<Integer> dayCount(String storeId , String date) {
         List<Integer> res = new ArrayList<>();
         QueryWrapper<Rule> wrapper = new QueryWrapper<>();
         wrapper.eq("store_id",storeId);

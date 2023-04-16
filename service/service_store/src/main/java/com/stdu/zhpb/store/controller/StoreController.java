@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,7 +32,7 @@ public class StoreController {
     @Autowired
     private StoreService storeService;
 
-    @ApiOperation("店铺列表")
+    @ApiOperation("分页店铺列表")
     @GetMapping("{page}/{limit}")
     public Result getStoreList(@PathVariable Long page,
                                @PathVariable Long limit,
@@ -40,6 +41,14 @@ public class StoreController {
         Map<String,Object> map = storeService.findPageStore(pageParam,storeQueryVo);
         return Result.ok(map);
     }
+
+    @ApiOperation("店铺列表")
+    @GetMapping()
+    public Result getAll(){
+        List<Store> all = storeService.getAll();
+        return Result.ok(all);
+    }
+
 
     @ApiOperation("添加店铺")
     @PostMapping("/add")

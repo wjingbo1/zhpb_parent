@@ -20,6 +20,7 @@ spring:
           uri: lb://service-employee
           predicates: # 路由断言，判断请求是否符合规则
             - Path=/*/employee/** # 路径断言，判断路径是否是以/user开头，如果是则符合
+
         - id: service-store
           uri: lb://service-store
           predicates: # 路由断言，判断请求是否符合规则

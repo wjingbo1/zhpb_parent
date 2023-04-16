@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class Store extends BaseEntity{
 
-    @TableId(type = IdType.ASSIGN_UUID)
+    //@TableId(type = IdType.ASSIGN_UUID)
     private String id;
 
     private String name;

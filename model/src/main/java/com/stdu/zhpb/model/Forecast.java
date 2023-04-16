@@ -19,8 +19,8 @@ public class Forecast extends BaseEntity{
 
     private String storeId;
 
-    @JsonFormat(pattern = "yyyy-MM-dd")
-    private Date dateTime;
+
+    private String dateTime;
 
     private String beginTime ;
 

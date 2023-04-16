@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface RuleService extends IService<Rule> {
 
-    List<Integer> dayCount(String storeId , Date date);
+    List<Integer> dayCount(String storeId , String date);
 
 
 }

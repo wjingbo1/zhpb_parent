@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stdu.zhpb.schedule.mapper.SchedulingResultMapper">
+
+
+    <insert id="addSchedulingResult" parameterType="com.stdu.zhpb.model.EmployeeSchedulingResult">
+        INSERT INTO employeeschedulingresult (employee_id, name, position, time,singleduration,currentdayduration)
+        VALUES (#{employeeId}, #{name}, #{position},#{time},#{singleDuration},#{currentDayDuration})
+    </insert>
+    <update id="addResult">
+        update employeeschedulingresult set status=#{status} where id=#{id}
+    </update>
+
+    <update id="updateCurrentDayDuration">
+        UPDATE employeeschedulingresult SET currentdayduration = #{v} WHERE employee_id=#{id} and LEFT(time, 10) = #{currentDate};
+    </update>
+
+    <select id="getByCurrentDate" resultType="com.stdu.zhpb.model.EmployeeSchedulingResult">
+        select * from employeeschedulingresult WHERE LEFT(time, 10) = #{currentDate}
+    </select>
+    <select id="getByEmployeeId" resultType="com.stdu.zhpb.model.EmployeeSchedulingResult">
+        select * from employeeschedulingresult where employee_id=#{id} and LEFT(time, 10) = #{currentDate};
+    </select>
+
+</mapper>
